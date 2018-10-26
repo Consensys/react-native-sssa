@@ -1,5 +1,5 @@
 {
-  "name": "ExampleProject",
+  "name": "ExampleProjectProject",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,11 +12,23 @@
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
+    "detox": "^9.0.5",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.48.1",
     "react-test-renderer": "16.6.0-alpha.8af6728"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/ExampleProject.app",
+        "build": "xcodebuild -project ios/ExampleProject.xcodeproj -scheme ExampleProject -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=NO",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    },
+    "test-runner": "jest"
   }
 }
