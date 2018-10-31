@@ -10,7 +10,7 @@
     "prettier": "prettier \"**/*.{js,json,css,md}\" --write",
     "lint": "eslint .",
     "e2e": "detox build && detox test",
-    "clean_build":"rm -rf build"
+    "clean_build": "rm -rf build"
   },
   "author": "Rob Hogan <roberthogan@blueyonder.co.uk>",
   "license": "MIT",

@@ -1,1 +1,1 @@
-shamir's secret sharing algorithm for react native
+Shamir's Secret Sharing Algorithm For React-Native
