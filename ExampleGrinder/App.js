@@ -3,9 +3,8 @@
  * https://github.com/facebook/react-native
  *
  * @format
- * @flow
  */
-
+/*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { generateSecureRandom } from '../RNSecureRandom/index';
