@@ -63,7 +63,7 @@
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "./ExampleGrinder/build/Build/Products/Debug-iphonesimulator/ExampleGrinder.app",
-        "build": "xcodebuild -project ./ExampleGrinder/ExampleGrinder.xcodeproj -scheme ExampleGrinder -configuration Debug -sdk iphonesimulator -derivedDataPath ./ExampleGrinder/ios/build -UseModernBuildSystem=NO -FORCE_BUNDLING=YES",
+        "build": "xcodebuild -project ./ExampleGrinder/ExampleGrinder.xcodeproj -scheme ExampleGrinder -configuration Debug -sdk iphonesimulator -derivedDataPath ./ExampleGrinder/ios/build -UseModernBuildSystem=NO ",
         "type": "ios.simulator",
         "name": "iPhone 7"
       }
