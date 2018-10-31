@@ -1,9 +1,9 @@
 module.exports = {
   preset: 'react-native',
-  rootDir: './ExampleGrinder',
   transform: {
     '^.+\\.js$': 'babel-jest'
   },
+  modulePathIgnorePatterns: ['/ExampleGrinder/node_modules/react-native'],
   globals: {
     window: true
   },

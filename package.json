@@ -4,13 +4,13 @@
   "description": "Generate cryptographically-secure random bytes in react native",
   "main": "index.js",
   "scripts": {
-    "start": "node ./ExampleGrinder/node_modules/react-native/local-cli/cli.js start",
-    "run:ios": "cd ExampleGrinder && react-native run-ios",
+    "start": "node ./node_modules/react-native/local-cli/cli.js start",
+    "run:ios": "react-native run-ios --project-path ./ExampleGrinder",
     "test": "yarn lint && yarn jest",
     "prettier": "prettier \"**/*.{js,json,css,md}\" --write",
     "lint": "eslint .",
     "e2e": "detox build && detox test",
-    "clean_build": "rm -rf build"
+    "clean_build": "rm -rf ExampleGrinder/ios/build"
   },
   "author": "Hadas Zeilberger",
   "peerDependencies": {
@@ -56,13 +56,14 @@
     "prettier": "^1.14.3",
     "pretty-quick": "^1.7.0",
     "prop-types": "^15.6.2",
+    "react": "^16.6.0",
     "react-native": "^0.57.4"
   },
   "detox": {
     "configurations": {
       "ios.sim.debug": {
-        "binaryPath": "./ExampleGrinder/ios/build/Build/Products/Debug-iphonesimulator/ExampleGrinder.app",
-        "build": "xcodebuild -project ./ExampleGrinder/ios/ExampleGrinder.xcodeproj -scheme ExampleGrinder -configuration Debug -sdk iphonesimulator -derivedDataPath ./ExampleGrinder/ios/build -UseModernBuildSystem=NO",
+        "binaryPath": "./ExampleGrinder/build/Build/Products/Debug-iphonesimulator/ExampleGrinder.app",
+        "build": "xcodebuild -project ./ExampleGrinder/ExampleGrinder.xcodeproj -scheme ExampleGrinder -configuration Debug -sdk iphonesimulator -derivedDataPath ./ExampleGrinder/ios/build -UseModernBuildSystem=NO -FORCE_BUNDLING=YES",
         "type": "ios.simulator",
         "name": "iPhone 7"
       }

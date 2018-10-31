@@ -26,6 +26,18 @@
 		134814201AA4EA6300B7C361 /* libRNSecureRandom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSecureRandom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNSecureRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSecureRandom.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNSecureRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSecureRandom.m; sourceTree = "<group>"; };
+		C6775B02218A0C8100B2359C /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B04218A0C8800B2359C /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B06218A0C8D00B2359C /* libRCTGeolocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTGeolocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B08218A0C9300B2359C /* libRCTImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B0A218A0C9C00B2359C /* libRCTLinking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTLinking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B0C218A0CA300B2359C /* libRCTAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTAnimation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B0E218A0CAB00B2359C /* libRCTNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTNetwork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B10218A0CB200B2359C /* libRCTSettings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTSettings.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B12218A0CB900B2359C /* libRCTText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTText.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B14218A0CC000B2359C /* libRCTVibration.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTVibration.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B16218A0CC800B2359C /* libRCTWebSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTWebSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6775B18218A0CD000B2359C /* libRCTBlob.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTBlob.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +65,27 @@
 				B3E7B5881CC2AC0600A0062D /* RNSecureRandom.h */,
 				B3E7B5891CC2AC0600A0062D /* RNSecureRandom.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				C6775B01218A0C8100B2359C /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		C6775B01218A0C8100B2359C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6775B16218A0CC800B2359C /* libRCTWebSocket.a */,
+				C6775B14218A0CC000B2359C /* libRCTVibration.a */,
+				C6775B12218A0CB900B2359C /* libRCTText.a */,
+				C6775B10218A0CB200B2359C /* libRCTSettings.a */,
+				C6775B0C218A0CA300B2359C /* libRCTAnimation.a */,
+				C6775B0A218A0C9C00B2359C /* libRCTLinking.a */,
+				C6775B08218A0C9300B2359C /* libRCTImage.a */,
+				C6775B02218A0C8100B2359C /* libReact.a */,
+				C6775B04218A0C8800B2359C /* libRCTActionSheet.a */,
+				C6775B06218A0C8D00B2359C /* libRCTGeolocation.a */,
+				C6775B0E218A0CAB00B2359C /* libRCTNetwork.a */,
+				C6775B18218A0CD000B2359C /* libRCTBlob.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +236,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
