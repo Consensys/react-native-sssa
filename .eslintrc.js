@@ -9,7 +9,7 @@ module.exports = {
     mocha: true
   },
   globals: {
-    __dev__: false
+    __DEV__: false
   },
   extends: [
     'eslint:recommended',
@@ -19,13 +19,11 @@ module.exports = {
   plugins: ['react', 'react-native', 'jasmine', 'detox'],
   settings: {
     react: {
-      pragma: 'react',
+      pragma: 'React',
       version: '16.5.0'
     }
   },
   rules: {
-    'react/display-name': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'no-unused-vars': 'off'
+    'react/display-name': 'off'
   }
 };
