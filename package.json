@@ -1,14 +1,73 @@
 {
   "name": "react-native-sssa",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.3.0",
+  "description": "Generate cryptographically-secure random bytes in react native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./node_modules/react-native/local-cli/cli.js start",
+    "run:ios": "react-native run-ios --project-path ./ExampleGrinder",
+    "test": "yarn lint && yarn jest",
+    "prettier": "prettier \"**/*.{js,json,css,md}\" --write",
+    "lint": "eslint .",
+    "e2e": "detox build && detox test",
+    "clean_build": "rm -rf ExampleGrinder/ios/build"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Hadas Zeilberger",
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rh389/react-native-securerandom.git"
+  },
+  "keywords": [
+    "react-native",
+    "shamir",
+    "threshold",
+    "PRNG",
+    "CSPRNG",
+    "crypto",
+    "Cryptography"
+  ],
+  "homepage": "https://github.com/rh389/react-native-securerandom#readme",
   "dependencies": {
-    "react-native-randombytes": "^3.5.1"
+    "base64-js": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "detox": "^9.0.4",
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-detox": "^1.0.0",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.3.0",
+    "flow-bin": "^0.78.0",
+    "husky": "^1.1.1",
+    "jest": "^23.6.0",
+    "metro-react-native-babel-preset": "^0.48.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.0",
+    "react-native": "^0.57.4"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "./ExampleGrinder/build/Build/Products/Debug-iphonesimulator/ExampleGrinder.app",
+        "build": "xcodebuild -project ./ExampleGrinder/ExampleGrinder.xcodeproj -scheme ExampleGrinder -configuration Debug -sdk iphonesimulator -derivedDataPath ./ExampleGrinder/ios/build -UseModernBuildSystem=NO ",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    },
+    "test-runner": "jest"
   }
 }
