@@ -20,33 +20,26 @@ const instructions = Platform.select({
 type Props = {};
 
 export default class App extends Component<Props> {
-  state = { randomBits: '', shamirShares: [''], shareLength: 0 };
+  state = { randomBits: '', shamirShares: [''] };
   async componentDidMount() {
     let randomNumber = await randomBitGenerator(14);
-
     let sssa = new SSSA(3);
     let secret = 'aaA=';
-
     let shares = await sssa.generateShares(secret, 7, 2, 1);
-
-    length = parseInt(shares[0], 16).toString(2).length;
-    isLengthCorrect = length === this.verifyLengthOfShare(secret, 3);
-    let combinedShares = sssa.combine(shares);
-
     this.setState({
       randomBits: randomNumber,
       shamirShares: shares,
-      shareLengthIsCorrect: isLengthCorrect
+      shareLength: this.verifyLengthOfShare(secret, 3)
     });
+    console.warn(bin2hex(shares[0]).length);
   }
   verifyLengthOfShare(secret, coeffLength) {
     var secretLengthInBits = base64ToBits(secret);
     var expectedLength =
       (Math.ceil(secretLengthInBits.length / coeffLength) + 1) * coeffLength;
-    return expectedLength;
+    console.warn(expectedLength);
   }
   render() {
-    console.warn('hello');
     return (
       <View style={styles.container}>
         <Text testID="welcome" style={styles.welcome}>
@@ -60,7 +53,7 @@ export default class App extends Component<Props> {
           {this.state.shamirShares.length}
         </Text>
         <Text testID="oneShare" style={styles.instructions}>
-          {this.state.shareLengthIsCorrect ? 'true' : 'false'}
+          {this.state.shamirShares[0].length === this.state.shareLength}
         </Text>
       </View>
     );
