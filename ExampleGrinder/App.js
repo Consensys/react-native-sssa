@@ -28,10 +28,9 @@ export default class App extends Component<Props> {
     let secret = 'aaA=';
 
     let shares = await sssa.generateShares(secret, 7, 2, 1);
-
     length = parseInt(shares[0], 16).toString(2).length;
     isLengthCorrect = length === this.verifyLengthOfShare(secret, 3);
-    let combinedShares = sssa.combine(shares);
+    //    let combinedShares = sssa.combine(shares);
 
     this.setState({
       randomBits: randomNumber,
