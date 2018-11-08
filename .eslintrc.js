@@ -9,7 +9,10 @@ module.exports = {
     mocha: true
   },
   globals: {
-    __DEV__: false
+    __DEV__: false,
+    device: false,
+    element: false,
+    by: false
   },
   extends: [
     'eslint:recommended',
