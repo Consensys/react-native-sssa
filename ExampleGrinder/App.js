@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { randomBitGenerator } from '../lib/randomBitGenerator.js';
 import { SSSA } from '../lib/sssa';
-import { base64ToBits, bin2hex } from '../lib/utils';
+import { base64ToBits, bin2hex, splitBitsToIntArray } from '../lib/utils';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -25,17 +25,19 @@ export default class App extends Component<Props> {
     let randomNumber = await randomBitGenerator(14);
 
     let sssa = new SSSA(3);
-    let secret = 'aaA=';
+    let secret = 'aaAa';
 
-    let shares = await sssa.generateShares(secret, 7, 2, 1);
-    length = parseInt(shares[0], 16).toString(2).length;
-    isLengthCorrect = length === this.verifyLengthOfShare(secret, 3);
+    //    let shares = await sssa.generateShares(secret, 7, 2, 1);
+    let points = await sssa.getPointsForChunks(secret, 7, 3);
+    console.warn(points);
+    //    length = parseInt(shares[0], 16).toString(2).length;
+    //    isLengthCorrect = length === this.verifyLengthOfShare([3, 2, 4], 3);
     //    let combinedShares = sssa.combine(shares);
 
     this.setState({
-      randomBits: randomNumber,
-      shamirShares: shares,
-      shareLengthIsCorrect: isLengthCorrect
+      randomBits: randomNumber
+      //     shamirShares: shares
+      //     shareLengthIsCorrect: isLengthCorrect
     });
   }
   verifyLengthOfShare(secret, coeffLength) {
