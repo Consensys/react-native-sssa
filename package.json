@@ -31,7 +31,8 @@
   ],
   "homepage": "https://github.com/rh389/react-native-securerandom#readme",
   "dependencies": {
-    "base64-js": "*"
+    "base64-js": "^1.3.0",
+    "is-base64": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

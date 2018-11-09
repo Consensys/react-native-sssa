@@ -6,25 +6,27 @@
  */
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { generateSecureRandom } from '../RNSecureRandom/index';
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
+import { StyleSheet, Text, View } from 'react-native';
+import { randomBitGenerator } from '../lib/randomBitGenerator.js';
 
 type Props = {};
+
 export default class App extends Component<Props> {
+  state = { randomBits: '' };
+  async componentDidMount() {
+    let randomNumber = await randomBitGenerator(14);
+    this.setState({ randomBits: randomNumber });
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text testID="welcome" style={styles.welcome}>
-          Welcome to React Native!
+          {this.state.randomBits}
         </Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text testID="randombits" style={styles.instructions}>
+          {this.state.randomBits.length}
+        </Text>
       </View>
     );
   }
