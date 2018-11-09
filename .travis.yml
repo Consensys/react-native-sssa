@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - '8'
+- '8'
 branches:
   only:
-    - master
+  - master
+deploy:
+  provider: npm
+  email: barlockm@gmail.com
+  api_key:
+    secure: MMG/XreuTKberxNCl4K7oqkkApkPWVRJUPuon3eufZOeH+s/wWcbCu0ngrUH9A7ZQUpQjS09oyrFGyktKaAs8AOudzJKztsCUOjdqXtO+byJmbEKP5Zu4hlXyuNechHkTy3s+BE1lfFgJDb5gsTbYlfnQL/T3/n/Js8QuznZ31MD10tRb4AlIry6l/LCm4hjt/n2SXP+a4TSCxqnhiRhWMe3v4nXgTffRazg7DF0f6PURFtil8jkU8371b8dR1vSBglh3xHNl1duT9gH5gO9Uhe1eTtdcEltedgthyqaOR0J241drUoSx3Nc79y2+2MAwurLzDUjMrSY/QzdTacCswTt4hlb1zaj2O6KBa11WqowjBkzW7HLC356Y468449VHyK7/q9hxvuF+nqE1c9IA1Yt6e10SAavxS/emrUHH+tZwR31dWK7SZDfUiUqb1QiX3hL5j+b4kdZeVDka3tm3MvGHQpEKRwm2GlKk33JhzaLwNJNphcYZMkoOycQxGwvyDt0ERptnC7xZzUdOrE9sR2iW/tM6/Jewfau2SsMBbp0ThiQkNwMQgiEcwtryulJyRrqBdGWuC2Mt8ddKCsnbA4ZDGOBf68wR/zXGvA/yzOrCgTcgXXFQWvs3XvJh/CnoWsqYBIvuaOd1j179uYTYeadXcb9h1xdn7CI2CIMlAk=
+  on:
+    tags: true
