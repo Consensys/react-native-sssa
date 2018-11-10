@@ -13,8 +13,7 @@ describe('Example', () => {
   it('will output an array of shares', async () => {
     await expect(element(by.id('shares'))).toHaveText('7');
   });
-   it('will output the correct length', async () => {
+  it('will output the correct length', async () => {
     await expect(element(by.id('oneShare'))).toHaveText('true');
   });
 });
-

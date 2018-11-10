@@ -6,58 +6,44 @@
  */
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { randomBitGenerator } from '../lib/randomBitGenerator.js';
+import { StyleSheet, Text, View } from 'react-native';
 import { SSSA } from '../lib/sssa';
-import { base64ToBits, bin2hex, splitBitsToIntArray } from '../lib/utils';
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
-
+const secret = 'aaA=';
 type Props = {};
-
+/**
+ * Main App, demonstrating how to use react-native-sssa in a project
+ */
 export default class App extends Component<Props> {
   state = { randomBits: '', shamirShares: [''], shareLength: 0 };
+
+  /**Runs after component mounts
+   * Good place for data fetching
+   */
   async componentDidMount() {
-    let randomNumber = await randomBitGenerator(14);
-
     let sssa = new SSSA(3);
-    let secret = 'aaA=';
-
     let shares = await sssa.generateShares(secret, 7, 2, 1);
     let combinedShares = sssa.combine(shares);
-    console.warn(combinedShares);
     this.setState({
-      randomBits: randomNumber,
-      shamirShares: shares
-      //     shareLengthIsCorrect: isLengthCorrect
+      shamirShares: JSON.stringify(shares),
+      regeneratedSecret: combinedShares
     });
   }
-  verifyLengthOfShare(secret, coeffLength) {
-    var secretLengthInBits = base64ToBits(secret);
-    var expectedLength =
-      (Math.ceil(secretLengthInBits.length / coeffLength) + 1) * coeffLength;
-    return expectedLength;
-  }
+  /**
+   *Renders the App
+   *@returns {React.Element} rendered component
+   */
   render() {
-    console.warn('hello');
     return (
       <View style={styles.container}>
-        <Text testID="welcome" style={styles.welcome}>
-          {this.state.randomBits}
+        <Text style={styles.welcome}>Secret</Text>
+        <Text style={styles.instructions}>{secret}</Text>
+        <Text testID="shares" style={styles.welcome}>
+          Array of shares
         </Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text testID="randombits" style={styles.instructions}>
-          {this.state.randomBits.length}
-        </Text>
-        <Text testID="shares" style={styles.instructions}>
-          {this.state.shamirShares.length}
-        </Text>
-        <Text testID="oneShare" style={styles.instructions}>
-          {this.state.shamirShares}
+        <Text style={styles.instructions}>{this.state.shamirShares}</Text>
+        <Text style={styles.welcome}>Regenerated Secret</Text>
+        <Text testID="secret" style={styles.instructions}>
+          {this.state.regeneratedSecret}
         </Text>
       </View>
     );

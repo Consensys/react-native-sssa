@@ -1,5 +1,27 @@
-import config from './config'; //class that represents polynomials as bit arrays export class Polynomial { /*represents a polynomial whose coefficients are binary * @constructor *@param {number} value - an integer, that when converted to binary, represents a polynomial */ constructor(value) { this.value = value; } /*returns the integer value of the polynomial *For example: If the value is 3, then the binary value is 011 *and the polynomial is x+1 */ getValue() { return this.value; } /*sets the value of the polynomial. For * example, setting the value to 3, * sets the polynomial to 011, which is * x + 1 *@param {number} value : an integer, that when converted to binary represents a polynomial */
+import config from './config';
 
+//class that represents polynomials as bit arrays
+export class Polynomial {
+  /*represents a polynomial whose coefficients are binary
+   * @constructor
+   *@param {number} value - an integer, that when converted to binary, represents a polynomial
+   */
+  constructor(value) {
+    this.value = value;
+  }
+  /*returns the integer value of the polynomial
+   *For example: If the value is 3, then the binary value is 011
+   *and the polynomial is x+1
+   */
+  getValue() {
+    return this.value;
+  }
+  /*sets the value of the polynomial. For
+   * example, setting the value to 3,
+   * sets the polynomial to 011, which is
+   * x + 1
+   *@param {number} value : an integer, that when converted to binary represents a polynomial
+   */
   setValue(value) {
     this.value = value;
   }
@@ -26,17 +48,11 @@ import config from './config'; //class that represents polynomials as bit arrays
     return this;
   }
   /*converts a polynomial represented by a bit array
-   * to integer form. For example,011 would be converted to 3
-   * @param {string} bitArray - for example "011"
+   * to integer form
    */
   static toIntegerForm(bitArray) {
     return parseInt(bitArray, 2);
   }
-  /*converts an integer to binary array representing a polynomial
-   * for example, 3 would be converted to "011"
-   *@param {number} integer - for example 3
-   *@returns {string}
-   */
   static toPolynomialForm(integer) {
     return new Number(integer).toString(2);
   }
