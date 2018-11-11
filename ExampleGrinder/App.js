@@ -1,30 +1,48 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- *
- * @format
  */
-/*eslint no-unused-vars: "warn"*/
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { generateSecureRandom } from '../RNSecureRandom/index';
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
 
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { SSSA } from '../lib/sssa';
+const secret = 'aaA=';
 type Props = {};
+/**
+ * Main App, demonstrating how to use react-native-sssa in a project
+ */
 export default class App extends Component<Props> {
+  state = { randomBits: '', shamirShares: [''], shareLength: 0 };
+
+  /**Runs after component mounts
+   * Good place for data fetching
+   */
+  async componentDidMount() {
+    let sssa = new SSSA(3);
+    let shares = await sssa.generateShares(secret, 7, 2, 1, 100);
+    let combinedShares = sssa.combine(shares);
+    this.setState({
+      shamirShares: JSON.stringify(shares),
+      regeneratedSecret: combinedShares
+    });
+  }
+  /**
+   *Renders the App
+   *@returns {React.Element} rendered component
+   */
   render() {
     return (
       <View style={styles.container}>
-        <Text testID="welcome" style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.welcome}>Secret</Text>
+        <Text style={styles.instructions}>{secret}</Text>
+        <Text testID="shares" style={styles.welcome}>
+          Array of shares
         </Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.instructions}>{this.state.shamirShares}</Text>
+        <Text style={styles.welcome}>Regenerated Secret</Text>
+        <Text testID="secret" style={styles.instructions}>
+          {this.state.regeneratedSecret}
+        </Text>
       </View>
     );
   }
