@@ -6,7 +6,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SSSA } from '../lib/sssa';
-import { generateSecureRandom } from 'react-native-securerandom';
 const secret = 'aaA=';
 type Props = {};
 /**
