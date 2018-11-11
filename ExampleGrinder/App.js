@@ -21,7 +21,7 @@ export default class App extends Component<Props> {
    */
   async componentDidMount() {
     let sssa = new SSSA(3);
-    let shares = await sssa.generateShares(secret, 7, 2, 1);
+    let shares = await sssa.generateShares(secret, 7, 2, 1, 100);
     let combinedShares = sssa.combine(shares);
     this.setState({
       shamirShares: JSON.stringify(shares),
