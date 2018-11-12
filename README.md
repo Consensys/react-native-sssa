@@ -16,8 +16,8 @@ A library to generate cryptographically secure shares of a secret.
 ## Installation
 
 ```bash
-$ yarn add react-native-sssa react-native-securerandom
-$ react-native link react-native-securerandom
+$ yarn add react-native-sssa react-native-securerandom react-native-aes-crypto react-native-secure-storage
+$ react-native link 
 ```
 
 This package relies on [react-native-securerandom](https://github.com/rh389/react-native-securerandom)
