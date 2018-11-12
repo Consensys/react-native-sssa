@@ -1,29 +1,39 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ *
+ * @format
  */
-
+/*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { SSSA } from '../lib/sssa';
+import { encryptAndSplitSecret, combineAndDecryptSecret } from '../index';
 const secret = 'aaA=';
 type Props = {};
 /**
  * Main App, demonstrating how to use react-native-sssa in a project
  */
 export default class App extends Component<Props> {
-  state = { randomBits: '', shamirShares: [''], shareLength: 0 };
+  state = { randomBits: '', shamirShares: [''], shareLength: 0, iv: '' };
 
   /**Runs after component mounts
    * Good place for data fetching
    */
   async componentDidMount() {
     let sssa = new SSSA(3);
-    let shares = await sssa.generateShares(secret, 7, 2, 1, 100);
+    let shares = await sssa.generateShares(secret, 7, 2, 100);
     let combinedShares = sssa.combine(shares);
+    let sharesAndIv = await encryptAndSplitSecret('hadas zeilberger', 7, 7);
+    let combinedAndDecryptedSecret = await combineAndDecryptSecret(
+      sharesAndIv.shares,
+      sharesAndIv.iv
+    );
     this.setState({
       shamirShares: JSON.stringify(shares),
-      regeneratedSecret: combinedShares
+      regeneratedSecret: combinedShares,
+      sharesandiv: JSON.stringify(sharesAndIv),
+      combinedSecret: combinedAndDecryptedSecret
     });
   }
   /**
@@ -43,6 +53,10 @@ export default class App extends Component<Props> {
         <Text testID="secret" style={styles.instructions}>
           {this.state.regeneratedSecret}
         </Text>
+        <Text style={styles.welcome}>shares and iv</Text>
+        <Text style={styles.instructions}>{this.state.sharesandiv}</Text>
+        <Text style={styles.welcome}>Combined and decrypted secret</Text>
+        <Text style={styles.instructions}>{this.state.combinedSecret}</Text>
       </View>
     );
   }

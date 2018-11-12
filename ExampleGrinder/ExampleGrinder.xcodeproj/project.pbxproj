@@ -37,6 +37,8 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C68CDCF32198DD740016682D /* libRNSecureRandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C13FFE62194E67600BAC13D /* libRNSecureRandom.a */; };
+		C68CDD3A21990DAC0016682D /* libRNSecureStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C68CDD3921990DA40016682D /* libRNSecureStorage.a */; };
+		C68CDD41219918510016682D /* libRCTAes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C68CDD402199183B0016682D /* libRCTAes.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +308,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C68CDD3821990DA40016682D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C68CDD0E21990DA40016682D /* RNSecureStorage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSecureStorage;
+		};
+		C68CDD3F2199183B0016682D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C68CDD3B2199183B0016682D /* RCTAes.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 32D980DD1BE9F11C00FA27E5;
+			remoteInfo = RCTAes;
+		};
 		C6C5F5EC218A1EDE00213ECF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C6C5F5E7218A1EDE00213ECF /* RCTAnimation.xcodeproj */;
@@ -349,6 +365,8 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		C68CDD0E21990DA40016682D /* RNSecureStorage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSecureStorage.xcodeproj; path = "../node_modules/react-native-secure-storage/ios/RNSecureStorage.xcodeproj"; sourceTree = "<group>"; };
+		C68CDD3B2199183B0016682D /* RCTAes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAes.xcodeproj; path = "../node_modules/react-native-aes-crypto/ios/RCTAes.xcodeproj"; sourceTree = "<group>"; };
 		C6C5F5E7218A1EDE00213ECF /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -377,6 +395,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				C68CDD3A21990DAC0016682D /* libRNSecureStorage.a in Frameworks */,
+				C68CDD41219918510016682D /* libRCTAes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +569,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C68CDD3B2199183B0016682D /* RCTAes.xcodeproj */,
+				C68CDD0E21990DA40016682D /* RNSecureStorage.xcodeproj */,
 				4C13FFE12194E67600BAC13D /* RNSecureRandom.xcodeproj */,
 				C6C5F5E7218A1EDE00213ECF /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -605,6 +627,22 @@
 			children = (
 				ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */,
 				2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C68CDD0F21990DA40016682D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C68CDD3921990DA40016682D /* libRNSecureStorage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C68CDD3C2199183B0016682D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C68CDD402199183B0016682D /* libRCTAes.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -734,6 +772,10 @@
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
 				{
+					ProductGroup = C68CDD3C2199183B0016682D /* Products */;
+					ProjectRef = C68CDD3B2199183B0016682D /* RCTAes.xcodeproj */;
+				},
+				{
 					ProductGroup = C6C5F5E8218A1EDE00213ECF /* Products */;
 					ProjectRef = C6C5F5E7218A1EDE00213ECF /* RCTAnimation.xcodeproj */;
 				},
@@ -780,6 +822,10 @@
 				{
 					ProductGroup = 4C13FFE22194E67600BAC13D /* Products */;
 					ProjectRef = 4C13FFE12194E67600BAC13D /* RNSecureRandom.xcodeproj */;
+				},
+				{
+					ProductGroup = C68CDD0F21990DA40016682D /* Products */;
+					ProjectRef = C68CDD0E21990DA40016682D /* RNSecureStorage.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1043,6 +1089,20 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C68CDD3921990DA40016682D /* libRNSecureStorage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSecureStorage.a;
+			remoteRef = C68CDD3821990DA40016682D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C68CDD402199183B0016682D /* libRCTAes.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTAes.a;
+			remoteRef = C68CDD3F2199183B0016682D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C6C5F5ED218A1EDE00213ECF /* libRCTAnimation.a */ = {
