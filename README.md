@@ -21,7 +21,7 @@ $ react-native link react-native-securerandom
 ```
 
 This package relies on [react-native-securerandom](https://github.com/rh389/react-native-securerandom)
-to provide entropy. It has native dependencies that need linking. If need be, 
+to provide entropy. It has native dependencies that need linking. If need be,
 their documentation provides instructions for [manual linking](https://github.com/rh389/react-native-securerandom#manual-linking)
 
 ## Usage
