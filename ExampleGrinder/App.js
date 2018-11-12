@@ -24,7 +24,7 @@ export default class App extends Component<Props> {
     let sssa = new SSSA(3);
     let shares = await sssa.generateShares(secret, 7, 2, 100);
     let combinedShares = sssa.combine(shares);
-    let sharesAndIv = await encryptAndSplitSecret('hadas is awesome', 7, 7);
+    let sharesAndIv = await encryptAndSplitSecret('hadas zeilberger', 7, 7);
     let combinedAndDecryptedSecret = await combineAndDecryptSecret(
       sharesAndIv.shares,
       sharesAndIv.iv
