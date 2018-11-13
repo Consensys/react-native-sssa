@@ -8,8 +8,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { encryptAndSplitSecret, combineAndDecryptSecret } from '../index';
-import { getFromIPFS, storeToIPFS } from '../lib/remoteStorage.js';
-const secret = 's';
+const secret = 'shamir';
 type Props = {};
 /**
  * Main App, demonstrating how to use react-native-sssa in a project
@@ -21,15 +20,13 @@ export default class App extends Component<Props> {
    * Good place for data fetching
    */
   async componentDidMount() {
-    let sharesAndIv = await encryptAndSplitSecret(secret, 5, 5);
-    let ipfsLocations = await storeToIPFS(sharesAndIv.shares);
-    let sharesFromIPFS = await getFromIPFS(ipfsLocations);
+    let locationsAndIv = await encryptAndSplitSecret(secret, 5, 3);
     let combinedAndDecryptedSecret = await combineAndDecryptSecret(
-      sharesAndIv.shares,
-      sharesAndIv.iv
+      locationsAndIv.locations,
+      locationsAndIv.iv
     );
     this.setState({
-      shares: sharesAndIv.shares,
+      shares: JSON.stringify(locationsAndIv.locations),
       finalSecret: combinedAndDecryptedSecret
     });
   }
@@ -43,7 +40,7 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Secret</Text>
         <Text style={styles.instructions}>{secret}</Text>
         <Text testID="shares" style={styles.welcome}>
-          Array of shares
+          Array of locations
         </Text>
         <Text style={styles.instructions}>{this.state.shares}</Text>
         <Text style={styles.welcome}>Secret Again!!</Text>
