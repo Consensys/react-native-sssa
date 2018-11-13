@@ -6,7 +6,7 @@ import { getKey, generateAndStoreKey } from './lib/privateKey.js';
  * @param {number} threshold - minimum number of shares needed to reconstruct the secret
  */
 export async function encryptAndSplitSecret(secret, numShares, threshold) {
-  let sssa = new SSSA(8);
+  let sssa = new SSSA(3);
   let key = await getKey();
   if (!key) {
     let isStored = await generateAndStoreKey();
@@ -17,6 +17,7 @@ export async function encryptAndSplitSecret(secret, numShares, threshold) {
   let resultObj = await encrypt(secret, key);
   let encryptedFile = resultObj.cipher;
   let shares = await sssa.generateShares(encryptedFile, numShares, threshold);
+
   return { shares: shares, iv: resultObj.iv };
 }
 /**@param {Array} shares - an array of shares from which to construct the secret
@@ -24,7 +25,7 @@ export async function encryptAndSplitSecret(secret, numShares, threshold) {
  */
 export async function combineAndDecryptSecret(shares, iv) {
   let key = await getKey();
-  let sssa = new SSSA(8);
+  let sssa = new SSSA(3);
   let encryptedSecret = sssa.combine(shares);
   let secret = await decrypt(encryptedSecret, key, iv);
   return secret;
