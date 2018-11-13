@@ -7,7 +7,10 @@
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { encryptAndSplitSecret, combineAndDecryptSecret } from '../index';
+import {
+  encryptSplitAndSpreadSecret,
+  collectCombineAndDecryptSecret
+} from '../index';
 const secret = 'shamir';
 type Props = {};
 /**
@@ -20,8 +23,8 @@ export default class App extends Component<Props> {
    * Good place for data fetching
    */
   async componentDidMount() {
-    let locationsAndIv = await encryptAndSplitSecret(secret, 5, 3);
-    let combinedAndDecryptedSecret = await combineAndDecryptSecret(
+    let locationsAndIv = await encryptSplitAndSpreadSecret(secret, 5, 3);
+    let combinedAndDecryptedSecret = await collectCombineAndDecryptSecret(
       locationsAndIv.locations,
       locationsAndIv.iv
     );

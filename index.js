@@ -6,7 +6,7 @@ import { getFromIPFS, storeToIPFS } from './lib/remoteStorage.js';
  * @param {number} numShares - number of shares you want to "split" the secret into
  * @param {number} threshold - minimum number of shares needed to reconstruct the secret
  */
-export async function encryptAndSplitSecret(secret, numShares, threshold) {
+export async function encryptSplitAndSpreadSecret(secret, numShares, threshold) {
   let sssa = new SSSA(8);
   let key = await getKey();
   if (!key) {
@@ -24,7 +24,7 @@ export async function encryptAndSplitSecret(secret, numShares, threshold) {
 /**@param {Array} ipfsLocations - IPFS locations - an array of locations of shares from which to construct the secret
  * @param {string} iv - a base64 string used as an initialization vector when encrypting the file
  */
-export async function combineAndDecryptSecret(ipfsLocations, iv) {
+export async function collectCombineAndDecryptSecret(ipfsLocations, iv) {
   let key = await getKey();
   let sssa = new SSSA(8);
   let sharesFromIPFS = await getFromIPFS(ipfsLocations);
