@@ -6,25 +6,48 @@
  */
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { generateSecureRandom } from '../RNSecureRandom/index';
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
-
+import { StyleSheet, Text, View } from 'react-native';
+import {
+  encryptSplitAndSpreadSecret,
+  collectCombineAndDecryptSecret
+} from '../index';
+const secret = 'shamir';
 type Props = {};
+/**
+ * Main App, demonstrating how to use react-native-sssa in a project
+ */
 export default class App extends Component<Props> {
+  state = { shares: '', ipfsLocations: '', finalSecret: '' };
+
+  /**Runs after component mounts
+   * Good place for data fetching
+   */
+  async componentDidMount() {
+    let locationsAndIv = await encryptSplitAndSpreadSecret(secret, 5, 3);
+    let combinedAndDecryptedSecret = await collectCombineAndDecryptSecret(
+      locationsAndIv.locations,
+      locationsAndIv.iv
+    );
+    this.setState({
+      shares: JSON.stringify(locationsAndIv.locations),
+      finalSecret: combinedAndDecryptedSecret
+    });
+  }
+  /**
+   *Renders the App
+   *@returns {React.Element} rendered component
+   */
   render() {
     return (
       <View style={styles.container}>
-        <Text testID="welcome" style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.welcome}>Secret</Text>
+        <Text style={styles.instructions}>{secret}</Text>
+        <Text testID="shares" style={styles.welcome}>
+          Array of locations
         </Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.instructions}>{this.state.shares}</Text>
+        <Text style={styles.welcome}>Secret Again!!</Text>
+        <Text style={styles.instructions}>{this.state.finalSecret}</Text>
       </View>
     );
   }
