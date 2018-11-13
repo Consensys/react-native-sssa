@@ -36,9 +36,9 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C68CDCF32198DD740016682D /* libRNSecureRandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C13FFE62194E67600BAC13D /* libRNSecureRandom.a */; };
 		C68CDD3A21990DAC0016682D /* libRNSecureStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C68CDD3921990DA40016682D /* libRNSecureStorage.a */; };
 		C68CDD41219918510016682D /* libRCTAes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C68CDD402199183B0016682D /* libRCTAes.a */; };
+		C68CDDA02199DFAF0016682D /* libRNSecureRandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C13FFE62194E67600BAC13D /* libRNSecureRandom.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -383,7 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C68CDCF32198DD740016682D /* libRNSecureRandom.a in Frameworks */,
+				C68CDDA02199DFAF0016682D /* libRNSecureRandom.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,

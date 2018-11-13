@@ -7,33 +7,30 @@
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { SSSA } from '../lib/sssa';
-import { encryptAndSplitSecret, combineAndDecryptSecret } from '../index';
-const secret = 'aaA=';
+import {
+  encryptSplitAndSpreadSecret,
+  collectCombineAndDecryptSecret
+} from '../index';
+const secret = 'shamir';
 type Props = {};
 /**
  * Main App, demonstrating how to use react-native-sssa in a project
  */
 export default class App extends Component<Props> {
-  state = { randomBits: '', shamirShares: [''], shareLength: 0, iv: '' };
+  state = { shares: '', ipfsLocations: '', finalSecret: '' };
 
   /**Runs after component mounts
    * Good place for data fetching
    */
   async componentDidMount() {
-    let sssa = new SSSA(3);
-    let shares = await sssa.generateShares(secret, 7, 2, 100);
-    let combinedShares = sssa.combine(shares);
-    let sharesAndIv = await encryptAndSplitSecret('hadas zeilberger', 7, 7);
-    let combinedAndDecryptedSecret = await combineAndDecryptSecret(
-      sharesAndIv.shares,
-      sharesAndIv.iv
+    let locationsAndIv = await encryptSplitAndSpreadSecret(secret, 5, 3);
+    let combinedAndDecryptedSecret = await collectCombineAndDecryptSecret(
+      locationsAndIv.locations,
+      locationsAndIv.iv
     );
     this.setState({
-      shamirShares: JSON.stringify(shares),
-      regeneratedSecret: combinedShares,
-      sharesandiv: JSON.stringify(sharesAndIv),
-      combinedSecret: combinedAndDecryptedSecret
+      shares: JSON.stringify(locationsAndIv.locations),
+      finalSecret: combinedAndDecryptedSecret
     });
   }
   /**
@@ -46,17 +43,11 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Secret</Text>
         <Text style={styles.instructions}>{secret}</Text>
         <Text testID="shares" style={styles.welcome}>
-          Array of shares
+          Array of locations
         </Text>
-        <Text style={styles.instructions}>{this.state.shamirShares}</Text>
-        <Text style={styles.welcome}>Regenerated Secret</Text>
-        <Text testID="secret" style={styles.instructions}>
-          {this.state.regeneratedSecret}
-        </Text>
-        <Text style={styles.welcome}>shares and iv</Text>
-        <Text style={styles.instructions}>{this.state.sharesandiv}</Text>
-        <Text style={styles.welcome}>Combined and decrypted secret</Text>
-        <Text style={styles.instructions}>{this.state.combinedSecret}</Text>
+        <Text style={styles.instructions}>{this.state.shares}</Text>
+        <Text style={styles.welcome}>Secret Again!!</Text>
+        <Text style={styles.instructions}>{this.state.finalSecret}</Text>
       </View>
     );
   }
