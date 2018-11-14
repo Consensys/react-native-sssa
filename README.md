@@ -20,9 +20,16 @@ $ yarn add react-native-sssa react-native-securerandom react-native-aes-crypto r
 $ react-native link
 ```
 
-This package relies on [react-native-securerandom](https://github.com/rh389/react-native-securerandom) to provide entropy in shamir's secret sharing algorithm, [react-native-aes-crypto] to provide encryption to secret before being processed by sssa, and [react-native-secure-storage] to safetly store and retrieve private key
-It has native dependencies that need linking.
-If need be,
-their documentation provides instructions for [manual linking](https://github.com/rh389/react-native-securerandom#manual-linking)
+[react-native-securerandom] is used to provide entropy in shamir's secret sharing algorithm 
 
+[react-native-aes-crypto] is used to encrypt a file with AES before being encrypted with SSSA
+
+[react-native-secure-storage] is used to securely stored the private key 
+
+If need be,
+their documentation provides instructions for manual linking:  
+[react-native-securerandom](https://github.com/rh389/react-native-securerandom#manual-linking)  
+[react-native-secure-storage](https://github.com/oyyq99999/react-native-secure-storage#manual-installation)  
+[react-native-aes-crypto] (https://github.com/tectiv3/react-native-aes#Installation)
 ## Usage
+
