@@ -12,7 +12,7 @@
 </p>
 
 A react-native library for generating cryptographically secure shares of a secret. 
-It uses Advanced Encryption Standard, Shamir's Secret Sharing Algorithm, and deploys shares to IPFS.
+
 
 ## Installation
 
