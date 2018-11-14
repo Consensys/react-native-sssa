@@ -20,17 +20,12 @@ $ yarn add react-native-sssa react-native-securerandom react-native-aes-crypto r
 $ react-native link
 ```
 
-**react-native-securerandom** is used to provide entropy in shamir's secret sharing algorithm 
+[react-native-securerandom](https://github.com/rh389/react-native-securerandom#manual-linking) is used to provide entropy in shamir's secret sharing algorithm 
 
-**react-native-aes-crypto** is used to encrypt a file with AES before being encrypted with SSSA
+[react-native-aes-crypto](https://github.com/tectiv3/react-native-aes#Installation) is used to encrypt a file with AES before being encrypted with SSSA
 
-**react-native-secure-storage** is used to securely stored the private key 
+[react-native-secure-storage](https://github.com/oyyq99999/react-native-secure-storage#manual-installation) is used to securely stored the private key 
 
-If need be,
-their documentation provides instructions for manual linking:  
-[react-native-securerandom](https://github.com/rh389/react-native-securerandom#manual-linking)  
-[react-native-secure-storage](https://github.com/oyyq99999/react-native-secure-storage#manual-installation)  
-[react-native-aes-crypto] (https://github.com/tectiv3/react-native-aes#Installation)
 ## Usage
 To put a plain text secret through the entire pipeline (encrypt with. AES, generate shares of the secret with Shamir's Secret Sharing Algorithm, and distribute shares to IPFS (via Infura), use the following:  
 
