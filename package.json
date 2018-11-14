@@ -1,6 +1,6 @@
 {
   "name": "react-native-sssa",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "shamir secret sharing algorithm for react-native",
   "main": "index.js",
   "scripts": {
