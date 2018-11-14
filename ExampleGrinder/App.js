@@ -7,7 +7,7 @@
 /*eslint no-unused-vars: "warn"*/
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {
+import SSSA, {
   encryptSplitAndSpreadSecret,
   collectCombineAndDecryptSecret
 } from '../index';
