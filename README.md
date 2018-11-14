@@ -11,7 +11,8 @@
   <a href="#usage">Usage</a>
 </p>
 
-A library to generate cryptographically secure shares of a secret.
+A react-native library for generating cryptographically secure shares of a secret. 
+It uses Advanced Encryption Standard, Shamir's Secret Sharing Algorithm, and deploys shares to IPFS.
 
 ## Installation
 
