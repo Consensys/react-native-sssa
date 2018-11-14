@@ -22,7 +22,7 @@ $ react-native link
 
 [react-native-securerandom](https://github.com/rh389/react-native-securerandom#manual-linking) is used to provide entropy in shamir's secret sharing algorithm 
 
-[react-native-aes-crypto](https://github.com/tectiv3/react-native-aes#Installation) is used to encrypt a file with AES before being encrypted with SSSA
+[react-native-aes-crypto](https://github.com/tectiv3/react-native-aes#Installation) is used to encrypt a file with AES before being processed with SSSA
 
 [react-native-secure-storage](https://github.com/oyyq99999/react-native-secure-storage#manual-installation) is used to securely stored the private key 
 
