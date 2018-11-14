@@ -4,6 +4,7 @@ node_js:
 branches:
   only:
   - master
+  - develop
 deploy:
   provider: npm
   email: hadaszeilberger@gmail.com
