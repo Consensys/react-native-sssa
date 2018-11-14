@@ -11,7 +11,8 @@
   <a href="#usage">Usage</a>
 </p>
 
-A library to generate cryptographically secure shares of a secret.
+A react-native library to generate cryptographically secure shares of a secret using Shamir's Secret Sharing Algorithm.
+
 
 ## Installation
 
