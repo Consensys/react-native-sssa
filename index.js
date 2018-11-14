@@ -36,3 +36,4 @@ export async function collectCombineAndDecryptSecret(ipfsLocations, iv) {
   let secret = await decrypt(encryptedSecret, key, iv);
   return secret;
 }
+export default SSSA;
