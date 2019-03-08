@@ -11,8 +11,7 @@
   <a href="#usage">Usage</a>
 </p>
 
-A react-native library for generating cryptographically secure shares of a secret. 
-
+A react-native library for generating cryptographically secure shares of a secret. **Currently only supported and tested on iOS.** 
 
 ## Installation
 
