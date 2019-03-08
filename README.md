@@ -11,7 +11,7 @@
   <a href="#usage">Usage</a>
 </p>
 
-A react-native library for generating cryptographically secure shares of a secret. **Currently only supported and tested on iOS.If you are interested in contributing - [here's an issue to start on](https://github.com/ConsenSys/react-native-sssa/issues/30)** 
+A react-native library for generating cryptographically secure shares of a secret. **Currently only supported and tested on iOS. If you are interested in contributing to it working for android, [here's an issue to start on](https://github.com/ConsenSys/react-native-sssa/issues/30)** 
 
 ## Installation
 
